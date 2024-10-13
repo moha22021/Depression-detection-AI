@@ -1,0 +1,461 @@
+:root {
+    --bg-color: #ffffff;
+    --text-color: #07074d;
+    --primary-color: #6a64f1;
+    --secondary-color: #dde3ec;
+}
+
+.dark-mode {
+    --bg-color: #1a1a2e;
+    --text-color: #e0e0e0;
+    --primary-color: #4a47a3;
+    --secondary-color: #16213e;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+h1 {
+    margin-top: 200px; /* إضافة مسافة بعد الشريط العلوي */
+    text-align: center;
+    font-size: 2.5rem;
+    /*color: #333;*/
+    margin-bottom: 30px;
+    color: #fafafa;
+    }
+    body.dark-mode h1 {
+        color: white; /* لون النص عند الوضع الداكن */
+        }
+body {
+    font-family: 'Cairo', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.logo-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: #ffffff; /* لون النص الافتراضي */
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* إضافة ظل خفيف */
+    transition: background-color 0.3s, box-shadow 0.3s, color 0.3s; /* إضافة انتقال لتغيير اللون */
+}
+.logo-image {
+    height: 40px; /* ضبط ارتفاع الصورة */
+    width: auto; /* المحافظة على نسبة العرض إلى الارتفاع */
+}
+
+
+/* الروابط داخل الشريط */
+.logo-bar a {
+    color: #ffffff; /* اللون الافتراضي للروابط */
+    text-decoration: none; /* إزالة التسطير */
+    transition: color 0.3s; /* إضافة انتقال لتغيير اللون */
+}
+
+.logo-bar.scrolled {
+    background-color: rgba(255, 255, 255, 0.9); /* خلفية أكثر وضوحاً عند التمرير */
+    color: #000000; /* تغيير لون النص إلى الأسود عند التمرير */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* ظل أعمق عند التمرير */
+}
+
+/* تغيير لون الروابط عند التمرير */
+.logo-bar.scrolled a {
+    color: #000000; /* تغيير لون الروابط إلى الأسود عند التمرير */
+}
+
+/* أضف هذه القواعد لنمط الوضع الداكن */
+.dark-mode .logo-bar {
+    background-color: rgba(0, 0, 0, 0.8); /* لون الخلفية في الوضع الداكن */
+    color: #ffffff; /* لون النص في الوضع الداكن */
+}
+
+.dark-mode .logo-bar.scrolled {
+    background-color: rgba(255, 255, 255, 0.1); /* خلفية أكثر وضوحاً عند التمرير في الوضع الداكن */
+    color: #ffffff; /* إبقاء لون النص أبيض في الوضع الداكن */
+}
+
+/* تغيير لون الروابط في الوضع الداكن */
+.dark-mode .logo-bar a {
+    color: #ffffff; /* إبقاء الروابط بيضاء في الوضع الداكن */
+}
+
+.dark-mode .logo-bar.scrolled a {
+    color: #ffffff; /* إبقاء الروابط بيضاء في الوضع الداكن عند التمرير */
+}
+
+
+
+/* النمط العادي للنموذج */
+#funnyForm {
+background-color: rgba(255, 255, 255, 0.9); /* لون أبيض مع شفافية */
+border-radius: 10px; /* إضافة زوايا دائرية */
+padding: 20px; /* إضافة مسافة داخلية */
+box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* إضافة ظل أكثر وضوحًا */
+margin: 20px auto; /* توسيط النموذج */
+max-width: 500px; /* تحديد عرض أقصى للنموذج */
+
+}
+
+
+/* الأنماط عند تفعيل الوضع الداكن */
+body.dark-mode #funnyForm {
+background-color: rgba(50, 50, 50, 0.9); /* لون داكن مع شفافية */
+color: white; /* لون النص عند الوضع الداكن */
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* ظل أكثر وضوحًا */
+}
+
+/* تغيير لون الحدود للعناصر داخل النموذج في الوضع الداكن */
+body.dark-mode #funnyForm input,
+body.dark-mode #funnyForm select,
+body.dark-mode #funnyForm textarea {
+background-color: rgba(100, 100, 100, 0.9); /* لون خلفية للعناصر */
+color: white; /* لون النص داخل العناصر */
+border: 1px solid rgba(255, 255, 255, 0.5); /* لون حدود فاتح */
+}
+
+/* تغيير لون النص عند التحويم */
+body.dark-mode #funnyForm input:hover,
+body.dark-mode #funnyForm select:hover,
+body.dark-mode #funnyForm textarea:hover {
+background-color: rgba(80, 80, 80, 1); /* لون أغمق عند التحويم */
+}
+body {
+background-image: url('/static/rick.png'); /* استبدل بمسار الصورة */
+background-size:  100% 100%; ; /* لتغطية كامل الصفحة */
+background-position: center; /* لتوسيط الصورة */
+background-repeat: no-repeat; /* عدم تكرار الصورة */
+
+}
+
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.form-group {
+margin-bottom: 30px; /* مسافة بين الأسئلة */
+padding: 15px; /* مسافة داخلية */
+border: 1px solid rgba(216, 216, 216, 0.1); /* حدود خفيفة حول كل سؤال */
+border-radius: 8px; /* زوايا دائرية */
+background-color: rgba(255, 255, 255, 0.8); /* لون خلفية فاتح مع شفافية */
+transition: background-color 0.3s; /* تأثير عند تمرير الفأرة */
+}
+.dark-mode .form-group {
+background-color: rgba(50, 50, 50, 0.8); /* لون خلفية داكن */
+color: white; /* لون النص */
+}
+.form-group:hover {
+background-color: rgba(240, 240, 240, 0.7); /* تغيير لون الخلفية عند المرور */
+}
+input[type="number"],
+select {
+width: 100%; /* جعل العناصر تمتد بالكامل */
+padding: 10px; /* مسافة داخلية */
+border: 1px solid #ccc; /* حدود خفيفة */
+border-radius: 5px; /* زوايا دائرية */
+font-size: 16px; /* حجم خط مناسب */
+}
+
+input[type="number"]:focus,
+select:focus {
+border-color: #007BFF; /* لون الحدود عند التركيز */
+outline: none; /* إزالة تأثير التركيز الافتراضي */
+}
+
+
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="number"],
+input[type="text"],
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--secondary-color);
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.radio-group {
+    display: flex;
+    gap: 15px;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.radio-label input {
+    margin-right: 5px;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #5753c9;
+    transform: scale(1.05); /* زيادة حجم الزر قليلاً */
+}
+
+.nav-links a {
+color: #fff;
+margin-left: 20px;
+text-decoration: none;
+font-size: 1rem;
+}
+
+.nav-links a:hover {
+text-decoration: underline; /* تأثير عند التحويم على الرابط */
+}
+
+.dark-mode-toggle {
+background: none;
+border: none;
+color: #fff;
+font-size: 1.5rem;
+cursor: pointer;
+margin-left: 20px;
+}
+
+.dark-mode-toggle:hover {
+color: #ccc; /* تغيير اللون عند التحويم */
+}
+
+#result {
+    display: none;
+    text-align: center;
+    margin-top: 30px;
+}
+
+#result h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+#result p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+
+    .logo-bar {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav-links {
+        margin-top: 10px;
+    }
+
+    .nav-links a {
+        margin: 0 10px;
+    }
+}
+
+/* تنسيق حاوية النتيجة */
+.result-container {
+    text-align: center;
+    background-color: #f8f9fa;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 10px;
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* تنسيق العنوان */
+.result-heading {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+    font-family: 'Cairo', sans-serif;
+}
+
+/* تنسيق رسالة النتيجة */
+.result-message {
+    font-size: 1.8rem;
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+/* تنسيق الرسالة التوصية */
+.recommendation-message {
+    font-size: 1.4rem;
+    color: #555;
+    margin-bottom: 20px;
+    font-family: 'Cairo', sans-serif;
+}
+
+/* تنسيق الزر */
+.btn-go-back {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.btn-go-back:hover {
+    background-color: #0056b3;
+}
+/* تأثير الظهور التدريجي */
+.result-message {
+    opacity: 0;
+    animation: fadeIn 2s ease-in-out forwards;
+}
+
+/* تحريك الزر عند التمرير فوقه */
+.btn-go-back {
+    transition: background-color 0.3s ease;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+.video-container {
+    margin: 20px 0; /* مساحة فوق وتحت الفيديو */
+    width: 100%; /* لتناسب عرض الحاوية */
+    max-width: 600px; /* تحديد عرض أقصى */
+    height: 350px; /* تحديد ارتفاع ثابت للحاوية */
+    border: 1px solid #ddd; /* إضافة حد خفيف */
+    border-radius: 8px; /* زوايا دائرية */
+    overflow: hidden; /* إخفاء أي محتوى يتجاوز الحدود */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* إضافة ظل */
+}
+/* وضع الوضع المظلم */
+.dark-mode .result-container {
+    background-color: #1c1c1c; /* لون خلفية داكن */
+    color: #f0f0f0; /* لون النص فاتح */
+    border: 1px solid #444; /* حد خفيف */
+}
+
+.dark-mode .result-heading {
+    color: #ffffff; /* لون الرأس */
+}
+
+.dark-mode .result-message {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* خط فاصل خفيف */
+}
+
+.dark-mode .recommendation-message {
+    color: #b0b0b0; /* لون النص للنصائح */
+}
+
+.dark-mode .btn-go-back {
+    background-color: #444; /* خلفية الزر */
+    color: #fff; /* لون النص في الزر */
+}
+
+.dark-mode .btn-go-back:hover {
+    background-color: #555; /* تغيير لون الخلفية عند التحويم */
+}
+.about-container {
+    padding: 20px;
+    max-width: 800px; /* عرض أقصى للصفحة */
+    margin: 0 auto; /* توسيط المحتوى */
+    background-color: rgba(255, 255, 255, 0.9); /* لون خلفية مع شفافية */
+    border-radius: 10px; /* زوايا دائرية */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* ظل خفيف */
+    text-align: center; /* توسيط النص */
+}
+
+.about-container h1 {
+    margin-bottom: 20px; /* مسافة أسفل العنوان */
+}
+
+.about-container p {
+    line-height: 1.6; /* تحسين ارتفاع السطر */
+    margin-bottom: 15px; /* مسافة بين الفقرات */
+    font-size: 18px; /* حجم خط مناسب */
+}
+
+.button-container {
+    margin-top: 20px; /* مسافة فوق الزر */
+}
+
+.btn-go-back {
+    display: inline-block; /* يجعل الزر في وسط الصفحة */
+    padding: 10px 20px; /* مساحة داخلية للزر */
+    background-color: #007bff; /* لون خلفية الزر */
+    color: white; /* لون نص الزر */
+    text-decoration: none; /* إزالة الخط السفلي من النص */
+    border-radius: 5px; /* زوايا دائرية للزر */
+    transition: background-color 0.3s; /* تأثير انتقال للون الخلفية */
+}
+
+.btn-go-back:hover {
+    background-color: #0056b3; /* لون خلفية الزر عند التمرير */
+}
+
+
+.btn-go-back {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff; /* لون الزر */
+    color: white; /* لون النص في الزر */
+    text-decoration: none; /* إزالة الخط السفلي */
+    border-radius: 5px; /* زوايا دائرية */
+}
+
+.btn-go-back:hover {
+    background-color: #0056b3; /* لون الزر عند التحويم */
+}
+.footer-bar {
+    position: fixed; /* لجعله مثبتًا في الأسفل */
+    bottom: 0; /* تحديد موقعه في أسفل الصفحة */
+    left: 0;
+    width: 100%;
+    background-color: #6a64f1; /* اللون المناسب */
+    color: #ffffff; /* لون النص */
+    text-align: center; /* توسيط النص */
+    padding: 10px 0; /* إضافة مسافة حول النص */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* إضافة ظل خفيف */
+}

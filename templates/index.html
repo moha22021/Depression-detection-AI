@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إيه يا وجع - استبيان كوميدي</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+
+    </style>
+</head>
+<body>
+    <div class="background-shadow"></div>
+    <div class="container">
+{% extends "base.html" %}
+{% block title %}إيه يا وجع - استبيان كوميدي{% endblock %}  
+{% block content %}
+        <h1>الوجعـ و ميتر 📏</h1>
+        <form id="funnyForm">
+            <div class="form-group">
+                <label for="age">كم عمرك يا قمر؟ 🌟</label>
+                <input type="range" id="age" name="age" min="13" max="50" value="13" oninput="this.nextElementSibling.value = this.value">
+                <!-- إظهار القيمة المختارة بجوار القرص -->
+                <output>13</output>
+            </div>
+
+            <div class="form-group">
+                <label>ايه نوعك يا بطة/بط؟ 🦆</label>
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="gender" value="Male" required> دكر 
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="gender" value="Female"> نتايه
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="profession">شغال ايه يا نجم؟ 🌠</label>
+                <select id="profession" name="profession">
+                    <option value="Student">طالب غلبان</option>
+                    <option value="Employee">موظف تعبان</option>
+                    <option value="Others">حاجة تانية خالص</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="marital_status">الحالة الاجتماعية، ولا بلاش؟ 💍</label>
+                <select id="marital_status" name="marital_status">
+                    <option value="Single">لسه براحتي</option>
+                    <option value="Married">خلاص اتربطت</option>
+                    <option value="Divorced">رجعت للسوق تاني</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>حياتك حلوة ولا نعنع؟ 🍬</label>
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="satisfied_life" value="Yes" required> أيوة زي الفل
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="satisfied_life" value="No"> لأ زي البصل
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>سيبت هواياتك ولا لسه بتمارسها؟ 🎨</label>
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="dropped_activities" value="Yes" required> أيوة، الحياة واخداني
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="dropped_activities" value="No"> لأ، لسه مستمتع
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>بتحس إن حياتك فاضية زي جيبك؟ 💸</label>
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="feel_life_empty" value="Yes" required> أه والنبي
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="feel_life_empty" value="No"> لأ الحمد لله
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>بتزهق كتير ولا إيه؟ 😴</label>
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="bored" value="Yes" required> أه زي القرد
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="bored" value="No"> لأ مشغول على طول
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>حاسس إنك عاجز عن التغيير؟ 🦸‍♂️</label>
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="feel_helpless" value="Yes" required> أه، زي البطارية الفاضية
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="feel_helpless" value="No"> لأ، أنا سوبرمان
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>خايف من بكرة ولا عادي؟ 🔮</label>
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="afraid_bad_happening" value="Yes" required> أه، بكرة مرعب
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="afraid_bad_happening" value="No"> لأ، بكرة زي الفل
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>شايف المستقبل وردي ولا أسود؟ 🌈</label>
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="hopeful_about_future" value="Yes" required> وردي زي الفراولة
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="hopeful_about_future" value="No"> أسود زي القهوة
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>بتقضي وقت حلو ولا كله نكد؟ 🎉</label>
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="spend_time_happily" value="Yes" required> علي ربيع
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="spend_time_happily" value="No"> عبله كامل
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>حاسس إن عندك طاقة ولا خلاص فصلت؟ 🔋</label>
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="feel_energy" value="Yes" required> طاقة زي الصاروخ
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="feel_energy" value="No"> فصلت خلاص
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>بتفضل تقعد في البيت ولا تخرج؟ 🏠</label>
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="prefer_stay_home" value="Yes" required> البيت أحلى مكان
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="prefer_stay_home" value="No"> برة أحلى
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="avoiding_social_gatherings">بتهرب من التجمعات ولا إيه؟ 🏃‍♂️</label>
+                <select id="avoiding_social_gatherings" name="avoiding_social_gatherings">
+                    <option value="Most of The Time">آه طول الوقت،</option>
+                    <option value="Sometimes">ساعات، لما أحس إن القعده بضينت</option>
+                    <option value="Not at All">لأ خالص، أنا اجتماعي جداً</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="sleep_well">بتنام كويس ولا لأ؟ 🛌</label>
+                <select id="sleep_well" name="sleep_well">
+                    <option value="Most of The Time">أيوة، بنام زي الملايكه</option>
+                    <option value="Sometimes">أحيانًا، بس مش على طول</option>
+                    <option value="Not at All">للأسف زيك ء-ء</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label>بتنسى كتير ولا ذاكرتك حديد؟ 🧠</label>
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="memory_loss" value="Yes" required> بقولك زهايمر يا جدع
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="memory_loss" value="No"> ذاكرتي زي الفيل
+                    </label>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label>حاسس إنك مالكش قيمة؟ 💎</label>
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="consider_worthless" value="Yes" required> 😢 أيوة، زي كيس فاضي!
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="consider_worthless" value="No"> تعال وأنا أوريك القيمه 
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>بتعيط كتير ولا بتحاول تضحك؟ 😢</label>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="cry_most_of_the_time" value="Yes" required> أيوة، بعيط زي الأطفال النونو
+                    </label>
+                    <label>
+                        <input type="radio" name="cry_most_of_the_time" value="No"> لأ، أنا جبلة ما بعيطش
+                    </label>
+                </div>
+            </div>
+            
+
+            
+            <div class="form-group">
+                <label>حاسس إن نفسك مسدوده؟ 🍽️</label>
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="feeling_reduce_appetite" value="Yes" required> أيوة، جوعان بس النفس مسدوده
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="feeling_reduce_appetite" value="No"> لأ، أنا طفس أصلا
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>شايف الوضع ازاي يا صحبي؟ 💪</label>
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="situation_hopeless" value="Yes" required> البؤس أبدي .. والعذاب سرمدي 
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="situation_hopeless" value="No">  كل شيء تحت السيطره ما تقلقش-_^
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>حاسس إن فيه ناس أفضل منك؟ 🤷‍♂️</label>
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="people_better_than_you" value="Yes" required> أه، هما أفضل مني بكثير
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="people_better_than_you" value="No"> لأ، كلنا عندنا مميزات
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>  بتحس بالذنب ؟ 😔</label>
+                <select id="feel_bad_and_guilty" name="feel_bad_and_guilty">
+                    <option value="Most of The Time">أيوة، معظم الوقت زي القط المسكين</option>
+                    <option value="Sometimes">أحيانًا، بس مش على طول</option>
+                    <option value="Not at All">قولتلك أنااا جبلة</option>
+                </select>
+            </div>
+            
+
+            <div class="form-group">
+                <label>لو مش موجود،تفتكر في حد هيزعل؟ 😔</label>
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="others_would_better_you_died" value="Yes" required> طبعاااا أومال ايه
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="others_would_better_you_died" value="No"> لأ، مش فارق مع حد😔
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn-result">خلصنا تعالى بقى نتطمن عليك! 🎉</button>
+            </div>
+        </form>
+{% endblock %}
+        <div id="resultMessage" class="result-message" style="display: none;"></div>
+        
+        <div class="result-container" style="display: none;">
+            <h2>نتيجتك يا نجم! 🎉</h2>
+            <div id="result" class="result"></div>
+            <button id="restartButton">رجعني للصفحة الرئيسية! 🏠</button>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>        

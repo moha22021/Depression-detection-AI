@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}نتيجة الاستبيان{% endblock %}
+
+{% block content %}
+    <div class="result-container">
+        <h1 class="result-heading">نتيجة استبيانك</h1>
+        <div class="result-message">
+            <p>احتمال الاكتئاب عندك هو: <strong>{{ depression_percentage }}%</strong></p>
+        </div>
+        <div class="recommendation-message">
+            {% set depression_percentage = depression_percentage | float %}
+            {% if depression_percentage < 20 %}
+                <p>إنت طيب وعارف كل حاجة، حاول تفضل كده 😄.</p>
+                <div class="video-container">
+                    <video controls autoplay muted style="width: 100%; height: 100%; object-fit: cover;">
+                        <source src="{{ url_for('static', filename='videos/video1.mp4') }}" type="video/mp4">
+                        عذراً، متصفحك لا يدعم تشغيل الفيديو.
+                    </video>
+                </div>
+            {% elif depression_percentage < 50 %}
+                <p>ممكن تكون متضايق شوية، ولكن كل حاجة هتبقى تمام إن شاء الله 😊.</p>
+                <div class="video-container">
+                    <video controls autoplay muted style="width: 100%; height: 100%; object-fit: cover;">
+                        <source src="{{ url_for('static', filename='videos/video2.mp4') }}" type="video/mp4">
+                        عذراً، متصفحك لا يدعم تشغيل الفيديو.
+                    </video>
+                </div>
+            {% elif depression_percentage < 80 %}
+                <p>الظاهر إنك محتاج شوية رعاية، اتكلم مع حد 😟.</p>
+                <div class="video-container">
+                    <video controls autoplay muted style="width: 100%; height: 100%; object-fit: cover;">
+                        <source src="{{ url_for('static', filename='videos/video3.mp4') }}" type="video/mp4">
+                        عذراً، متصفحك لا يدعم تشغيل الفيديو.
+                    </video>
+                </div>
+            {% else %}
+                <p> ايه يا وجع كل ده جدع!!!!!!😔.</p>
+                <div class="video-container">
+                    <video controls autoplay muted style="width: 100%; height: 100%; object-fit: cover;">
+                        <source src="{{ url_for('static', filename='videos/video4.mp4') }}" type="video/mp4">
+                        عذراً، متصفحك لا يدعم تشغيل الفيديو.
+                    </video>
+                </div>
+            {% endif %}
+        </div>
+        <a href="/" class="btn-go-back">الرجوع إلى الصفحة الرئيسية</a>
+    </div>
+{% endblock %}
+
