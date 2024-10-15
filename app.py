@@ -29,6 +29,9 @@ def get_chatbot_response(prompt):
         return response_data['choices'][0]['message']['content']
     else:
         return "Error: " + str(response_data)
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
 
 @app.route('/result/<depression_percentage>')
 def result(depression_percentage):

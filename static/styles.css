@@ -552,3 +552,22 @@ body.dark-mode .about-container p {
     border-radius: 50%; /* لجعل الصورة دائرية */
     animation: float 3s ease-in-out infinite; /* إضافة الحركة */
 }
+.contact-container {
+    padding: 20px;
+    max-width: 800px; /* عرض أقصى للصفحة */
+    margin: 0 auto; /* توسيط المحتوى */
+    text-align: center; /* توسيط النص */
+}
+
+.video-container {
+    margin: 20px 0; /* مسافة حول الفيديو */
+}
+
+.contact-info {
+    margin-top: 20px; /* مسافة أعلى معلومات الاتصال */
+}
+.contact-container h1 {
+    margin-top: 150px; /* زيادة المسافة بين العنوان وشريط الشعار */
+    text-align: center; /* توسيط النص */
+    color: #333; /* لون العنوان */
+}
