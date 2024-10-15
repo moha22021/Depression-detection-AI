@@ -15,10 +15,17 @@
 <body>
     <!-- الشريط العلوي -->
     <div class="logo-bar">
-        <img src="{{ url_for('static', filename='hqdefault.png') }}" alt="Logo" class="logo-image">
+        <div class="logo-container">
+            <img src="{{ url_for('static', filename='hqdefault.png') }}" alt="Logo" class="logo-image">
+            <div class="text-around-logo">
+                <span class="rotating-text">تعيش فلسطين حره أبيه</span>
+            </div>
+        </div>
         <div class="logo">إيه يا وجع!</div>
         <div class="nav-links">
-            <button type="button" id="toggleButton" class="dark-mode-toggle">🌓</button>
+            <button type="button" id="toggleButton" class="dark-mode-toggle">
+                <i class="fas fa-moon"></i>
+            </button>
             <a href="/"><i class="fas fa-home"></i> الرئيسية</a>
             <a href="/about"><i class="fas fa-info-circle"></i> عن الاستبيان</a>
             <a href="#"><i class="fas fa-envelope"></i> اتصل بنا</a>

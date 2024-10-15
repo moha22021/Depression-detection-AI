@@ -33,6 +33,7 @@ body {
     background-color: var(--bg-color);
     color: var(--text-color);
     transition: background-color 0.3s, color 0.3s;
+    padding-bottom: 50px;
 }
 
 
@@ -46,6 +47,7 @@ body {
     position: fixed;
     top: 0;
     left: 0;
+    height:auto;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -60,6 +62,9 @@ body {
 .logo-image {
     height: 40px; /* ضبط ارتفاع الصورة */
     width: auto; /* المحافظة على نسبة العرض إلى الارتفاع */
+    border-radius: 50%; /* جعل الصورة دائرية */
+    object-fit: cover; /* لجعل الصورة متناسبة مع الإطار الدائري */
+    border: 2px solid #bdbdbd; /* إضافة إطار حول الصورة */
 }
 
 
@@ -246,17 +251,24 @@ text-decoration: underline; /* تأثير عند التحويم على الرا�
 }
 
 .dark-mode-toggle {
-background: none;
-border: none;
-color: #fff;
-font-size: 1.5rem;
-cursor: pointer;
-margin-left: 20px;
+    background-color: transparent; /* إزالة خلفية الزر */
+    border: none; /* إزالة الحدود */
+    cursor: pointer; /* تغيير شكل المؤشر عند التمرير */
+    font-size: 1.5rem; /* حجم الأيقونة */
+    outline: none; /* إزالة التحديد عند التركيز */
+    padding: 5px; /* إضافة بعض المسافة حول الأيقونة */
+    border-radius: 50%; /* لجعل الزر دائري الشكل */
+    transition: background-color 0.3s ease; /* تأثير بسيط عند التمرير */
 }
 
 .dark-mode-toggle:hover {
-color: #ccc; /* تغيير اللون عند التحويم */
+    background-color: rgba(0, 0, 0, 0.1); /* تأثير خلفية خفيف عند التمرير */
 }
+
+.dark-mode-toggle:focus {
+    outline: none; /* إزالة التحديد عند الضغط */
+}
+
 
 #result {
     display: none;
@@ -407,14 +419,34 @@ color: #ccc; /* تغيير اللون عند التحويم */
     text-align: center; /* توسيط النص */
 }
 
+/* نمط وضع الظلام */
+body.dark-mode .about-container {
+    background-color: rgba(34, 34, 34, 0.9); /* لون خلفية داكن */
+    color: white; /* لون نص أبيض */
+}
+
 .about-container h1 {
-    margin-bottom: 20px; /* مسافة أسفل العنوان */
+    margin-top: 0px; /* إزالة المسافة الكبيرة فوق العنوان */
+    margin-bottom: 10px; /* تقليل المسافة أسفل العنوان */
+    text-align: center;
+    font-size: 2.5rem;
+    color: #333; /* لون العنوان */
+}
+
+/* تعديل لون العنوان في وضع الظلام */
+body.dark-mode .about-container h1 {
+    color: white; /* لون العنوان أبيض في وضع الظلام */
 }
 
 .about-container p {
     line-height: 1.6; /* تحسين ارتفاع السطر */
     margin-bottom: 15px; /* مسافة بين الفقرات */
     font-size: 18px; /* حجم خط مناسب */
+}
+
+/* تعديل لون الفقرات في وضع الظلام */
+body.dark-mode .about-container p {
+    color: white; /* لون الفقرات أبيض في وضع الظلام */
 }
 
 .button-container {
@@ -458,6 +490,7 @@ color: #ccc; /* تغيير اللون عند التحويم */
     text-align: center; /* توسيط النص */
     padding: 10px 0; /* إضافة مسافة حول النص */
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* إضافة ظل خفيف */
+    
 }
 .share-container {
     margin-top: 20px;
@@ -465,14 +498,57 @@ color: #ccc; /* تغيير اللون عند التحويم */
 
 .share-button {
     display: inline-block;
-    background-color: #6a64f1; /* استخدم اللون المفضل لديك */
+    background-color: #3b5998; /* لون فيسبوك */
     color: white;
-    padding: 10px 20px;
+    padding: 10px 15px;
     border-radius: 5px;
     text-decoration: none;
+    font-size: 16px;
     transition: background-color 0.3s;
 }
 
 .share-button:hover {
-    background-color: #5a54d1; /* لون عند المرور */
+    background-color: #2d4373; /* لون أغمق عند التمرير */
+}
+
+.share-button i {
+    margin-right: 5px; /* مساحة بين الأيقونة والنص */
+}
+.image-container {
+    display: flex;
+    justify-content: center; /* توسيط الصورة */
+    margin: 10px 0; /* مسافة علوية وسفلية تحت الصورة */
+    cursor: pointer; /* تغيير شكل المؤشر */
+}
+
+.rounded-image {
+    width: 120px; /* عرض الصورة */
+    height: 120px; /* ارتفاع الصورة */
+    border-radius: 50%; /* لجعل الصورة دائرية */
+    object-fit: cover; /* لضمان ملاءمة الصورة داخل الدائرة */
+    border: 2px solid #6a64f1; /* إضافة حد للصورة */
+    margin-top: 150px; /* إضافة هوامش علوية للصورة */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* تأثير سلس عند التمرير */
+}
+
+.rounded-image:hover {
+    transform: scale(1.05); /* تكبير بسيط عند التمرير */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* إضافة ظل عند التمرير */
+    cursor: pointer; /* تغيير شكل المؤشر إلى يد */
+}
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px); /* تتحرك لأعلى */
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.rounded-image {
+    border-radius: 50%; /* لجعل الصورة دائرية */
+    animation: float 3s ease-in-out infinite; /* إضافة الحركة */
 }

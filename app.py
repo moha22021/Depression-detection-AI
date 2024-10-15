@@ -1,11 +1,35 @@
 from flask import Flask, render_template, request, jsonify
 import numpy as np
 import joblib
-
+import requests 
 app = Flask(__name__, static_folder='static', template_folder='templates')
 
 # تحميل النموذج المدرب
 model = joblib.load('depression_model.pkl')
+
+# إعداد API Key و Endpoint الخاص بـ Azure OpenAI
+AZURE_OPENAI_API_KEY = 'a9a3e3256d2b4345ada4345e79cc2e2e'  # استبدل بـ API Key الخاصة بك
+AZURE_OPENAI_ENDPOINT = 'https://29608-m292yd0w-eastus.cognitiveservices.azure.com/openai/deployments/gpt-35-turbo/chat/completions?api-version=2024-08-01-preview'  # استبدل بـ Endpoint الخاصة بك
+
+def get_chatbot_response(prompt):
+    url = f"{AZURE_OPENAI_ENDPOINT}/v1/chat/completions"
+    headers = {
+        'Content-Type': 'application/json',
+        'Authorization': f'Bearer {AZURE_OPENAI_API_KEY}'
+    }
+    data = {
+        "model": "gpt-35-turbo",  # استخدم النموذج المناسب
+        "messages": [{"role": "user", "content": prompt}]
+    }
+    
+    response = requests.post(url, headers=headers, json=data)
+    response_data = response.json()
+    
+    if response.status_code == 200:
+        return response_data['choices'][0]['message']['content']
+    else:
+        return "Error: " + str(response_data)
+
 @app.route('/result/<depression_percentage>')
 def result(depression_percentage):
     return render_template('result.html', depression_percentage=depression_percentage)
@@ -100,6 +124,20 @@ def submit():
     depression_percentage = probabilities[0][1] * 100  # تحويل الاحتمال إلى نسبة مئوية
 
     return jsonify({'depression_percentage': float(depression_percentage)})  # أعد النسبة المئوية
+
+
+@app.route('/chat', methods=['POST'])
+def chat():
+    if request.json is None:
+        return jsonify({'error': 'No data received'}), 400  # ارجع خطأ إذا لم تكن البيانات موجودة
+
+    user_input = request.json.get('user_input')  # استخدم get بدلاً من []
+    
+    if user_input is None:
+        return jsonify({'error': 'user_input not found'}), 400  # ارجع خطأ إذا لم يكن الحقل موجودًا
+
+    response = get_chatbot_response(user_input)  # استدعاء الدالة للحصول على الرد
+    return jsonify({'response': response})
 
 if __name__ == '__main__':
     app.run(debug=True)

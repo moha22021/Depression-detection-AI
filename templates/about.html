@@ -3,7 +3,11 @@
 {% block title %}عن الاستبيان{% endblock %}
 
 {% block content %}
+
     <div class="about-container">
+        <div class="image-container">
+            <img src="{{ url_for('static', filename='images/جابر الشرقاوي.webp') }}" alt="شعار الاستبيان" class="rounded-image" id="myImage">
+        </div>
         <h1>عن الاستبيان</h1>
         <p>مرحبًا بك في استبيان "إيه يا وجع"! هذا الاختبار مصمم لمساعدتك في تقييم حالتك النفسية بشكل غير رسمي.</p>
         <p>لقد اعتمدنا على الذكاء الاصطناعي لتقديم نتائج دقيقة بناءً على إجاباتك. نهدف من خلال هذا الاستبيان إلى توعية الناس بأهمية الصحة النفسية وكيفية التعامل معها.</p>
@@ -11,7 +15,24 @@
         <p>نأمل أن تجد هذا الاستبيان مفيدًا، ولا تتردد في مشاركته مع أصدقائك!</p>
         
         <div class="button-container">
-            <a href="/" class="btn-go-back">الرجوع إلى الصفحة الرئيسية</a>
+            <a href="/" class="btn-go-back">رجعني للصفحه الرئيسيه</a>
         </div>
     </div>
+    <script>
+        // تعريف الصوت
+        const sound = new Audio("{{ url_for('static', filename='جابرالشرقاوي.mp3') }}");
+
+        // الحصول على الصورة
+        const image = document.getElementById("myImage");
+
+        // تشغيل الصوت عند الضغط على الصورة
+        image.addEventListener("click", function() {
+            sound.play();
+        });
+
+        // تشغيل الصوت عند التمرير فوق الصورة
+        image.addEventListener("mouseover", function() {
+            sound.play();
+        });
+    </script>
 {% endblock %}
