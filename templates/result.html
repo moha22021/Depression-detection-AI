@@ -3,12 +3,20 @@
 {% block title %}نسبة اكتئابك{% endblock %}
 
 {% block head %}
-    <meta property="og:title" content="نتيجة استبيان الاكتئاب" />
-    <meta property="og:description" content="احتمال الاكتئاب عندك هو: {{ depression_percentage }}%." />
-    <meta property="og:url" content="{{ url_for('result', depression_percentage=depression_percentage, _external=True) }}" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="{{ url_for('static', filename='images/your_image.jpg') }}" />
-{% endblock %}
+<meta property="og:title" content="نتيجة استبيان الاكتئاب" />
+<meta property="og:description" content="احتمال الاكتئاب عندك هو: {{ depression_percentage }}%." />
+<meta property="og:url" content="{{ url_for('result', depression_percentage=depression_percentage, _external=True) }}" />
+<meta property="og:type" content="website" />
+{% set depression_percentage = depression_percentage | float %}
+{% if depression_percentage < 20 %}
+    <meta property="og:image" content="{{ url_for('static', filename='images/image1.jpg') }}" />
+{% elif depression_percentage < 50 %}
+    <meta property="og:image" content="{{ url_for('static', filename='images/image2.jpg') }}" />
+{% elif depression_percentage < 80 %}
+    <meta property="og:image" content="{{ url_for('static', filename='images/image3.jpg') }}" />
+{% else %}
+    <meta property="og:image" content="{{ url_for('static', filename='images/image4.jpg') }}" />
+{% endif %}
 
 {% block content %}
 <div class="result-container">
