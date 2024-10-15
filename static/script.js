@@ -156,4 +156,31 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
+        // كود الدردشة
+        const chatInput = document.getElementById('user_input');
+        const chatResponseContainer = document.getElementById('chat_response');
+        const sendButton = document.getElementById('send_button');
+    
+        if (sendButton) {
+            sendButton.addEventListener('click', function() {
+                const userInput = chatInput.value;
+    
+                // إرسال الطلب إلى الخادم
+                fetch('/chat', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ user_input: userInput })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    chatResponseContainer.innerHTML += '<p><strong>أنت:</strong> ' + userInput + '</p>';
+                    chatResponseContainer.innerHTML += '<p><strong>الذكاء الاصطناعي:</strong> ' + data.response + '</p>';
+                    chatInput.value = '';  // مسح حقل الإدخال
+                })
+                .catch(error => console.error('Error:', error));
+            });
+        }
+    
 });

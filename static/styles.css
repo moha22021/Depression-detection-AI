@@ -459,3 +459,20 @@ color: #ccc; /* تغيير اللون عند التحويم */
     padding: 10px 0; /* إضافة مسافة حول النص */
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* إضافة ظل خفيف */
 }
+.share-container {
+    margin-top: 20px;
+}
+
+.share-button {
+    display: inline-block;
+    background-color: #6a64f1; /* استخدم اللون المفضل لديك */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.share-button:hover {
+    background-color: #5a54d1; /* لون عند المرور */
+}
